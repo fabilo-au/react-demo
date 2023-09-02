@@ -1,33 +1,24 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "@emotion/react";
 import { darkTheme } from "./themes";
 import { CssBaseline } from "@mui/material";
-import { ErrorNotFoundPage } from "./pages";
+import { BrowserRouter } from "react-router-dom";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorNotFoundPage />,
-  },
-]);
-
-root.render(
+// eslint-disable-next-line react/no-deprecated
+ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ThemeProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
