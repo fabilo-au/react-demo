@@ -1,7 +1,7 @@
-import axios from 'axios';
-import * as constants from '~/constants';
-import md5 from 'md5';
-import { timestamp } from '~/lib/date';
+import axios from "axios";
+import * as constants from "~/constants";
+import md5 from "md5";
+import { timestamp } from "~/lib/date";
 
 const marvelApiRequest = async (url: string, params = {}) => {
   const ts = timestamp();

@@ -1,2 +1,2 @@
-export { default as getDate } from './getDate';
-export { default as timestamp } from './timestamp';
+export { default as getDate } from "./getDate";
+export { default as timestamp } from "./timestamp";
