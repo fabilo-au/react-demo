@@ -1,12 +1,12 @@
 const config = {
-  preset: 'ts-jest',
+  preset: "ts-jest",
   transform: {
-    '^.+\\.(ts|tsx)?$': 'ts-jest',
+    "^.+\\.(ts|tsx)?$": "ts-jest",
   },
   moduleNameMapper: {
-    '^~/(.*)$': '<rootDir>/src/$1',
+    "^~/(.*)$": "<rootDir>/src/$1",
   },
-  moduleDirectories: ['node_modules', 'src'],
+  moduleDirectories: ["node_modules", "src"],
 };
 
 export default config;
