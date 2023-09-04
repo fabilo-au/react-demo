@@ -1,0 +1,2 @@
+export REACT_APP_API_PRIVATE_KEY=getFromMarvelDeveloperPortal
+export REACT_APP_API_PUBLIC_KEY=getFromMarvelDeveloperPortal
