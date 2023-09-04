@@ -7,17 +7,29 @@ import { ThemeProvider } from "@emotion/react";
 import { darkTheme } from "./themes";
 import { CssBaseline } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 // eslint-disable-next-line react/no-deprecated
 ReactDOM.render(
-  <React.StrictMode>
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <BrowserRouter>
+  <ThemeProvider theme={darkTheme}>
+    <CssBaseline />
+    <BrowserRouter>
+      <QueryClientProvider
+        client={
+          new QueryClient({
+            defaultOptions: {
+              queries: {
+                refetchOnWindowFocus: false,
+                cacheTime: 60 * 1000,
+              },
+            },
+          })
+        }
+      >
         <App />
-      </BrowserRouter>
-    </ThemeProvider>
-  </React.StrictMode>,
+      </QueryClientProvider>
+    </BrowserRouter>
+  </ThemeProvider>,
   document.getElementById("root"),
 );
 
