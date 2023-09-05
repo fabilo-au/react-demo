@@ -1,12 +1,13 @@
 const config = {
-  preset: 'ts-jest',
+  testEnvironment: "jsdom",
+  preset: "ts-jest",
   transform: {
-    '^.+\\.(ts|tsx)?$': 'ts-jest',
+    "^.+\\.(ts|tsx)?$": "ts-jest",
   },
   moduleNameMapper: {
-    '^~/(.*)$': '<rootDir>/src/$1',
+    "^~/(.*)$": "<rootDir>/src/$1",
   },
-  moduleDirectories: ['node_modules', 'src'],
+  moduleDirectories: ["node_modules", "src"],
 };
 
 export default config;

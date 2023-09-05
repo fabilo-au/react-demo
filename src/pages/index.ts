@@ -1,1 +1,2 @@
-export * from './errors';
+export * from "./characters";
+export * from "./errors";

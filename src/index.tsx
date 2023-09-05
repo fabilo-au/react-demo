@@ -1,33 +1,36 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "@emotion/react";
 import { darkTheme } from "./themes";
 import { CssBaseline } from "@mui/material";
-import { ErrorNotFoundPage } from "./pages";
+import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorNotFoundPage />,
-  },
-]);
-
-root.render(
-  <React.StrictMode>
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <RouterProvider router={router} />
-    </ThemeProvider>
-  </React.StrictMode>
+// eslint-disable-next-line react/no-deprecated
+ReactDOM.render(
+  <ThemeProvider theme={darkTheme}>
+    <CssBaseline />
+    <BrowserRouter>
+      <QueryClientProvider
+        client={
+          new QueryClient({
+            defaultOptions: {
+              queries: {
+                refetchOnWindowFocus: false,
+                cacheTime: 60 * 1000,
+              },
+            },
+          })
+        }
+      >
+        <App />
+      </QueryClientProvider>
+    </BrowserRouter>
+  </ThemeProvider>,
+  document.getElementById("root"),
 );
 
 // If you want to start measuring performance in your app, pass a function
